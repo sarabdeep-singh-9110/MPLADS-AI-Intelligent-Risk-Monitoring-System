@@ -5,7 +5,6 @@
   "functions": {
     "api/index.js": {
       "includeFiles": "database/mplads_risk.db.gz",
-      "maxDuration": 60,
       "memory": 1024
     }
   },
