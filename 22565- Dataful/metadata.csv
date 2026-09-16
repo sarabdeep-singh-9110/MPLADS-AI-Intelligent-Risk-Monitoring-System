@@ -1,0 +1,10 @@
+organisation,Ministry of Statistics and Programme Implementation
+sectors,"Administration and Governance, Finance"
+updated_frequency,As and When
+granularity,"State, Loksabha Constituency, District, Implementing Agency Name, Loksabha MP Name, Work Name, Vendor Name"
+time_saved,6 hours
+source,"Ministry of Statistics and Programme Implementation"
+source_link,"https://mplads.mospi.gov.in/digigov/dashboard.html"
+time_period,"2024 to 2026"
+units,"expenditure_amount in indian rupees"
+citation,"Ministry of Statistics and Programme Implementation. 18th Lok Sabha MPLADS: State, Lok Sabha Constituency, Work Name, Vendor Name wise amount spent by each MP from MPLADS [Data set]. Dataful. https://dataful.in/dataset/22565"

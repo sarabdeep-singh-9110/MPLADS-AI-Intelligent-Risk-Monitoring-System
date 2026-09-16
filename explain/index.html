@@ -1,0 +1,1318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MPLADS AI — Visual UI Presentation & Pitch Guide</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #090d16;
+      --card-bg: rgba(18, 26, 43, 0.85);
+      --card-border: rgba(255, 255, 255, 0.08);
+      --card-hover: rgba(30, 41, 67, 0.95);
+      --primary: #3b82f6;
+      --primary-glow: rgba(59, 130, 246, 0.35);
+      --accent: #8b5cf6;
+      --accent-glow: rgba(139, 92, 246, 0.3);
+      --success: #10b981;
+      --warning: #f59e0b;
+      --danger: #ef4444;
+      --text-main: #f8fafc;
+      --text-muted: #94a3b8;
+      --text-dim: #64748b;
+      --font: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      --mono: 'JetBrains Mono', monospace;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: var(--bg);
+      color: var(--text-main);
+      font-family: var(--font);
+      line-height: 1.6;
+      overflow-x: hidden;
+      background-image: 
+        radial-gradient(circle at 15% 15%, rgba(59, 130, 246, 0.12) 0%, transparent 40%),
+        radial-gradient(circle at 85% 65%, rgba(139, 92, 246, 0.12) 0%, transparent 45%),
+        radial-gradient(circle at 50% 90%, rgba(16, 185, 129, 0.08) 0%, transparent 40%);
+      background-attachment: fixed;
+    }
+
+    .container {
+      max-width: 1240px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* Header Nav */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(9, 13, 22, 0.85);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--card-border);
+      padding: 16px 0;
+    }
+
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    .logo-group {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .badge-sih {
+      background: linear-gradient(135deg, #2563eb, #7c3aed);
+      color: white;
+      font-size: 11px;
+      font-weight: 700;
+      padding: 4px 10px;
+      border-radius: 999px;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      box-shadow: 0 0 16px var(--primary-glow);
+    }
+
+    .logo-text {
+      font-size: 18px;
+      font-weight: 800;
+      letter-spacing: -0.5px;
+      background: linear-gradient(135deg, #ffffff 40%, #93c5fd);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .nav-pills {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(255, 255, 255, 0.04);
+      padding: 4px;
+      border-radius: 12px;
+      border: 1px solid var(--card-border);
+    }
+
+    .nav-btn {
+      background: transparent;
+      border: none;
+      color: var(--text-muted);
+      padding: 6px 14px;
+      border-radius: 8px;
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .nav-btn:hover {
+      color: #fff;
+      background: rgba(255, 255, 255, 0.06);
+    }
+
+    .nav-btn.active {
+      background: var(--primary);
+      color: #fff;
+      box-shadow: 0 0 12px var(--primary-glow);
+    }
+
+    /* Hero */
+    .hero {
+      padding: 64px 0 40px;
+      text-align: center;
+    }
+
+    .hero-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 16px;
+      border-radius: 999px;
+      background: rgba(59, 130, 246, 0.1);
+      border: 1px solid rgba(59, 130, 246, 0.25);
+      color: #93c5fd;
+      font-size: 12px;
+      font-weight: 600;
+      margin-bottom: 20px;
+    }
+
+    .hero-title {
+      font-size: 44px;
+      font-weight: 800;
+      line-height: 1.15;
+      letter-spacing: -1.2px;
+      margin-bottom: 18px;
+      background: linear-gradient(180deg, #ffffff 0%, #cbd5e1 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .hero-title span {
+      background: linear-gradient(135deg, #60a5fa, #c084fc);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .hero-desc {
+      font-size: 17px;
+      color: var(--text-muted);
+      max-width: 840px;
+      margin: 0 auto 32px;
+    }
+
+    /* Stats Row */
+    .stats-row {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 16px;
+      margin-bottom: 48px;
+    }
+
+    .stat-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 16px;
+      padding: 20px;
+      text-align: left;
+      backdrop-filter: blur(12px);
+      transition: transform 0.2s ease, border-color 0.2s ease;
+    }
+
+    .stat-card:hover {
+      transform: translateY(-2px);
+      border-color: rgba(255, 255, 255, 0.15);
+    }
+
+    .stat-val {
+      font-size: 28px;
+      font-weight: 800;
+      letter-spacing: -0.5px;
+      color: #fff;
+      font-family: var(--mono);
+    }
+
+    .stat-label {
+      font-size: 13px;
+      color: var(--text-muted);
+      margin-top: 4px;
+    }
+
+    .stat-sub {
+      font-size: 11px;
+      color: #38bdf8;
+      margin-top: 6px;
+      font-weight: 600;
+    }
+
+    /* Section Headers */
+    .section-title-wrap {
+      margin: 48px 0 24px;
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      border-bottom: 1px solid var(--card-border);
+      padding-bottom: 14px;
+    }
+
+    .section-title {
+      font-size: 24px;
+      font-weight: 700;
+      letter-spacing: -0.5px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .section-desc {
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+
+    /* UI Visual Step Cards with Thumbnails */
+    .steps-container {
+      display: flex;
+      flex-direction: column;
+      gap: 36px;
+    }
+
+    .step-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 20px;
+      padding: 28px;
+      backdrop-filter: blur(16px);
+      transition: all 0.3s ease;
+    }
+
+    .step-card:hover {
+      border-color: rgba(96, 165, 250, 0.3);
+      box-shadow: 0 12px 36px rgba(0, 0, 0, 0.45);
+    }
+
+    .step-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      padding: 4px 12px;
+      border-radius: 999px;
+      background: rgba(59, 130, 246, 0.15);
+      color: #60a5fa;
+      margin-bottom: 12px;
+    }
+
+    .step-title {
+      font-size: 21px;
+      font-weight: 700;
+      margin-bottom: 20px;
+      color: #fff;
+    }
+
+    .step-layout {
+      display: grid;
+      grid-template-columns: 1.15fr 1fr;
+      gap: 24px;
+      align-items: stretch;
+    }
+
+    @media (max-width: 992px) {
+      .step-layout {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* Thumbnail Frame */
+    .thumbnail-frame {
+      background: #0b1120;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 14px;
+      overflow: hidden;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .browser-bar {
+      background: rgba(255, 255, 255, 0.05);
+      padding: 8px 12px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .dot {
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      display: inline-block;
+    }
+
+    .dot.red { background: #ef4444; }
+    .dot.yellow { background: #f59e0b; }
+    .dot.green { background: #10b981; }
+
+    .browser-url {
+      font-family: var(--mono);
+      font-size: 10px;
+      color: #94a3b8;
+      background: rgba(0, 0, 0, 0.3);
+      padding: 2px 8px;
+      border-radius: 4px;
+      margin-left: 6px;
+      flex: 1;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .thumbnail-img-wrap {
+      position: relative;
+      overflow: hidden;
+      cursor: zoom-in;
+      background: #020617;
+    }
+
+    .thumbnail-img {
+      width: 100%;
+      height: auto;
+      display: block;
+      transition: transform 0.3s ease;
+    }
+
+    .thumbnail-img:hover {
+      transform: scale(1.02);
+    }
+
+    /* Content Box: Points & Script */
+    .content-column {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .point-box {
+      background: rgba(0, 0, 0, 0.3);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      border-radius: 14px;
+      padding: 16px;
+    }
+
+    .point-header {
+      font-size: 12px;
+      font-weight: 700;
+      color: #93c5fd;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .point-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .point-list li {
+      font-size: 13px;
+      color: #cbd5e1;
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+    }
+
+    .point-list li::before {
+      content: "•";
+      color: var(--primary);
+      font-weight: bold;
+    }
+
+    .script-box {
+      background: linear-gradient(135deg, rgba(30, 41, 67, 0.6), rgba(15, 23, 42, 0.8));
+      border: 1px solid rgba(139, 92, 246, 0.25);
+      border-radius: 14px;
+      padding: 18px;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .script-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 12px;
+      font-weight: 700;
+      color: #c084fc;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 10px;
+    }
+
+    .script-text {
+      font-size: 13.5px;
+      line-height: 1.6;
+      color: #f1f5f9;
+      font-style: italic;
+    }
+
+    .copy-btn {
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      color: #cbd5e1;
+      padding: 4px 10px;
+      border-radius: 6px;
+      font-size: 11px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .copy-btn:hover {
+      background: var(--accent);
+      color: white;
+    }
+
+    /* Lightbox Modal for Full Screenshot */
+    .lightbox {
+      display: none;
+      position: fixed;
+      inset: 0;
+      z-index: 1000;
+      background: rgba(0, 0, 0, 0.85);
+      backdrop-filter: blur(8px);
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+    }
+
+    .lightbox.active {
+      display: flex;
+    }
+
+    .lightbox-img {
+      max-width: 95vw;
+      max-height: 90vh;
+      border-radius: 12px;
+      box-shadow: 0 0 40px rgba(0, 0, 0, 0.9);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .lightbox-close {
+      position: absolute;
+      top: 24px;
+      right: 28px;
+      background: rgba(255, 255, 255, 0.2);
+      border: none;
+      color: white;
+      font-size: 24px;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* Simulator */
+    .simulator-card {
+      background: linear-gradient(135deg, rgba(18, 26, 43, 0.95), rgba(15, 23, 42, 0.95));
+      border: 1px solid rgba(59, 130, 246, 0.3);
+      border-radius: 20px;
+      padding: 32px;
+      margin: 40px 0;
+      box-shadow: 0 12px 40px rgba(0, 0, 0, 0.5);
+    }
+
+    .sim-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 32px;
+      margin-top: 24px;
+    }
+
+    @media (max-width: 800px) {
+      .sim-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .slider-group {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .slider-item {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .slider-label {
+      display: flex;
+      justify-content: space-between;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--text-muted);
+    }
+
+    .slider-label span:last-child {
+      color: #fff;
+      font-family: var(--mono);
+      font-weight: 700;
+    }
+
+    input[type="range"] {
+      width: 100%;
+      height: 6px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.1);
+      outline: none;
+      -webkit-appearance: none;
+    }
+
+    input[type="range"]::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      background: var(--primary);
+      cursor: pointer;
+      box-shadow: 0 0 10px var(--primary-glow);
+    }
+
+    .sim-result-box {
+      background: rgba(0, 0, 0, 0.4);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 16px;
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+
+    .sim-score-num {
+      font-size: 56px;
+      font-weight: 900;
+      font-family: var(--mono);
+      line-height: 1;
+      margin: 12px 0;
+      transition: color 0.3s ease;
+    }
+
+    .badge-pill {
+      font-size: 12px;
+      font-weight: 700;
+      padding: 6px 16px;
+      border-radius: 999px;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+    }
+
+    /* Q&A Accordion */
+    .qa-group {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-bottom: 48px;
+    }
+
+    .qa-item {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 14px;
+      overflow: hidden;
+      transition: all 0.2s ease;
+    }
+
+    .qa-item.open {
+      border-color: rgba(139, 92, 246, 0.4);
+    }
+
+    .qa-question {
+      padding: 18px 20px;
+      font-size: 15px;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      cursor: pointer;
+      user-select: none;
+      color: #fff;
+    }
+
+    .qa-question:hover {
+      background: rgba(255, 255, 255, 0.02);
+    }
+
+    .qa-icon {
+      font-size: 18px;
+      transition: transform 0.2s ease;
+      color: var(--primary);
+    }
+
+    .qa-item.open .qa-icon {
+      transform: rotate(45deg);
+    }
+
+    .qa-answer {
+      padding: 0 20px 18px;
+      font-size: 13.5px;
+      color: var(--text-muted);
+      line-height: 1.6;
+      display: none;
+    }
+
+    .qa-item.open .qa-answer {
+      display: block;
+    }
+
+    /* Pitch Grid */
+    .pitch-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 20px;
+      margin-bottom: 48px;
+    }
+
+    .pitch-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 16px;
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .pitch-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 14px;
+    }
+
+    .pitch-badge {
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      padding: 3px 10px;
+      border-radius: 999px;
+      background: rgba(16, 185, 129, 0.15);
+      color: #34d399;
+    }
+
+    /* Footer */
+    footer {
+      border-top: 1px solid var(--card-border);
+      padding: 32px 0;
+      text-align: center;
+      color: var(--text-dim);
+      font-size: 13px;
+    }
+
+    .print-hide {
+      display: block;
+    }
+
+    @media print {
+      body {
+        background: white;
+        color: black;
+      }
+      .print-hide {
+        display: none !important;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <div class="container header-inner">
+      <div class="logo-group">
+        <span class="badge-sih">SIH 2026 • PS #26102</span>
+        <span class="logo-text">MPLADS AI Visual Presentation Hub</span>
+      </div>
+      <div class="nav-pills print-hide">
+        <button class="nav-btn active" onclick="scrollToSection('hero')">Overview</button>
+        <button class="nav-btn" onclick="scrollToSection('walkthrough')">UI Walkthrough</button>
+        <button class="nav-btn" onclick="scrollToSection('simulator')">Formula Simulator</button>
+        <button class="nav-btn" onclick="scrollToSection('qa')">Jury Q&A</button>
+        <button class="nav-btn" onclick="window.print()">Print / PDF</button>
+      </div>
+    </div>
+  </header>
+
+  <div class="container">
+    
+    <!-- Hero -->
+    <section class="hero" id="hero">
+      <div class="hero-tag">
+        <span>⚡</span> Visual Screen-by-Screen Pitch & Viva Preparation System
+      </div>
+      <h1 class="hero-title">
+        Visual Presentation Guide for <span>MPLADS AI</span>
+      </h1>
+      <p class="hero-desc">
+        Demonstrate our hybrid risk model, vendor concentration detection, and field audit dispatch across 56,138 works and 1.43 lakh MoSPI vouchers with exact UI thumbnails and scripts.
+      </p>
+
+      <!-- Stat Highlights -->
+      <div class="stats-row">
+        <div class="stat-card">
+          <div class="stat-val">56,138</div>
+          <div class="stat-label">Civil Works Tracked</div>
+          <div class="stat-sub">100% Pan-India Coverage</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-val">1,43,256</div>
+          <div class="stat-label">MoSPI Vouchers</div>
+          <div class="stat-sub">₹3,039 Cr Transactions</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-val">22,851</div>
+          <div class="stat-label">Commercial Vendors</div>
+          <div class="stat-sub">Monopoly Detection</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-val">0.6 + 0.4</div>
+          <div class="stat-label">Hybrid Risk Model</div>
+          <div class="stat-sub">Statutory Rules + ML</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 30-Second & 2-Minute Quick Pitches -->
+    <div class="section-title-wrap">
+      <div class="section-title">🎙️ Instant Pitch Decks</div>
+      <div class="section-desc">Memorize or read these during your presentation opening</div>
+    </div>
+
+    <div class="pitch-grid">
+      <div class="pitch-card">
+        <div>
+          <div class="pitch-header">
+            <span class="pitch-badge">30-Second Elevator Pitch</span>
+            <button class="copy-btn" onclick="copyText('pitch-30')">Copy</button>
+          </div>
+          <p id="pitch-30" class="script-text">
+            "Every year, thousands of crores are allocated under MPLADS for grassroots infrastructure. But manually auditing 56,000+ works and 1.43 lakh payment vouchers causes severe blind spots. <strong>MPLADS AI</strong> solves this with a dual-engine platform combining statutory rules with unsupervised ML (Isolation Forest) to detect cost anomalies, flag vendor monopolies, and prioritize on-site physical verification queues for District Magistrates before funds are misused."
+          </p>
+        </div>
+      </div>
+
+      <div class="pitch-card">
+        <div>
+          <div class="pitch-header">
+            <span class="pitch-badge">2-Minute Full Presentation Script</span>
+            <button class="copy-btn" onclick="copyText('pitch-120')">Copy</button>
+          </div>
+          <p id="pitch-120" class="script-text">
+            "Our solution addresses the 4 key bottlenecks in public fund monitoring: Scale, Disconnected Datasets, Delayed Audits, and Subjective Prioritization. We ingest 56,138 works and 143,256 MoSPI vouchers, run a scoped fuzzy matching engine, apply a 0.6 Rule + 0.4 ML Hybrid Risk Score, map spatial clusters on interactive GIS heatmaps, and equip field engineers with an Explainable AI Copilot for physical inspection checklists. Every recommendation is legally safeguarded and exportable into UTF-8 CSVs for official action."
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- UI Screen by Screen Walkthrough with Thumbnails -->
+    <div class="section-title-wrap" id="walkthrough">
+      <div class="section-title">🖥️ Screen-by-Screen UI Walkthrough with Thumbnails</div>
+      <div class="section-desc">Click any thumbnail to zoom in full screen</div>
+    </div>
+
+    <div class="steps-container">
+
+      <!-- Screen 1: Overview Dashboard -->
+      <div class="step-card">
+        <div class="step-badge">Screen 1 of 8</div>
+        <h3 class="step-title">1. National Overview Dashboard & Persona Bar</h3>
+        <div class="step-layout">
+          <div class="thumbnail-frame">
+            <div class="browser-bar">
+              <span class="dot red"></span>
+              <span class="dot yellow"></span>
+              <span class="dot green"></span>
+              <span class="browser-url">http://localhost:3000/#/overview</span>
+            </div>
+            <div class="thumbnail-img-wrap" onclick="openLightbox('assets/screen1_overview.png')">
+              <img src="assets/screen1_overview.png" alt="National Overview Dashboard" class="thumbnail-img">
+            </div>
+          </div>
+
+          <div class="content-column">
+            <div class="point-box">
+              <div class="point-header">👉 What to Point to on Screen</div>
+              <ul class="point-list">
+                <li>8 Metric KPI Cards: 56,138 works, ₹1,212 Cr allocation, Critical & High counts.</li>
+                <li>Top-Right Role Switcher: <strong>National (MoSPI)</strong>, <strong>State</strong>, <strong>District (DM)</strong>, <strong>CAG Auditor</strong>.</li>
+                <li>Dual Charts: Risk Level Distribution & Monthly National Expenditure trajectory.</li>
+                <li>Quick link: <code>Open Field Verification Queue →</code>.</li>
+              </ul>
+            </div>
+
+            <div class="script-box">
+              <div class="script-header">
+                <span>🗣️ What to Speak (Script)</span>
+                <button class="copy-btn" onclick="copyText('script-1')">Copy</button>
+              </div>
+              <p id="script-1" class="script-text">
+                "Respected jury members, on the National Overview we get instantaneous macro-visibility across all 56,138 active MPLADS works worth ₹1,200+ Crores. Notice the Role Persona switcher in the top right: the interface adapts whether you are MoSPI in New Delhi, a State Secretary in Lucknow, or a District Collector on the ground. Our hybrid model isolates high-risk outliers across states in real time."
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Screen 2: GIS Spatial Map -->
+      <div class="step-card">
+        <div class="step-badge">Screen 2 of 8</div>
+        <h3 class="step-title">2. GIS Spatial Risk Map & Clustering</h3>
+        <div class="step-layout">
+          <div class="thumbnail-frame">
+            <div class="browser-bar">
+              <span class="dot red"></span>
+              <span class="dot yellow"></span>
+              <span class="dot green"></span>
+              <span class="browser-url">http://localhost:3000/#/gis</span>
+            </div>
+            <div class="thumbnail-img-wrap" onclick="openLightbox('assets/screen2_gis.png')">
+              <img src="assets/screen2_gis.png" alt="GIS Spatial Map" class="thumbnail-img">
+            </div>
+          </div>
+
+          <div class="content-column">
+            <div class="point-box">
+              <div class="point-header">👉 What to Point to on Screen</div>
+              <ul class="point-list">
+                <li>Interactive India Map with color-coded risk markers (Red: Critical, Amber: High, Blue: Low).</li>
+                <li>State clustering: Click a state cluster (e.g. UP, Bihar, Maharashtra) to zoom into constituency pins.</li>
+                <li>Spatial Density Sidebar: Ranks constituencies by risk concentration.</li>
+              </ul>
+            </div>
+
+            <div class="script-box">
+              <div class="script-header">
+                <span>🗣️ What to Speak (Script)</span>
+                <button class="copy-btn" onclick="copyText('script-2')">Copy</button>
+              </div>
+              <p id="script-2" class="script-text">
+                "Risk is rarely isolated—it often clusters spatially. Our GIS Spatial Intelligence Module maps project risk density across India. Clicking a cluster zooms into localized project pins, allowing authorities to detect suspicious geographic concentrations—such as 10 community halls sanctioned in the exact same village block."
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Screen 3: Projects Deep Dive -->
+      <div class="step-card">
+        <div class="step-badge">Screen 3 of 8</div>
+        <h3 class="step-title">3. Projects Catalog & Risk Deep-Dive Modal</h3>
+        <div class="step-layout">
+          <div class="thumbnail-frame">
+            <div class="browser-bar">
+              <span class="dot red"></span>
+              <span class="dot yellow"></span>
+              <span class="dot green"></span>
+              <span class="browser-url">http://localhost:3000/#/projects (Inspect Modal)</span>
+            </div>
+            <div class="thumbnail-img-wrap" onclick="openLightbox('assets/screen3_projects.png')">
+              <img src="assets/screen3_projects.png" alt="Projects Deep Dive Modal" class="thumbnail-img">
+            </div>
+          </div>
+
+          <div class="content-column">
+            <div class="point-box">
+              <div class="point-header">👉 What to Point to on Screen</div>
+              <ul class="point-list">
+                <li>Filter Toolbar: Search MP/Work, State, Constituency, Risk Level.</li>
+                <li>Click <strong>"Inspect"</strong> on a Critical Project (e.g. <code>PRJ_B6FC</code>).</li>
+                <li>Deep-Dive Modal: Gauge comparison (Rule Score 85 vs ML Anomaly Score 81.36).</li>
+                <li>Explainable reasons list & Action buttons (Open in Copilot / Assign Inspection).</li>
+              </ul>
+            </div>
+
+            <div class="script-box">
+              <div class="script-header">
+                <span>🗣️ What to Speak (Script)</span>
+                <button class="copy-btn" onclick="copyText('script-3')">Copy</button>
+              </div>
+              <p id="script-3" class="script-text">
+                "When we click Inspect on project PRJ_B6FC in Goa, our deep-dive modal explains the exact reasoning behind the 84/100 score: 4 statutory rule violations (excess cost, delay, duplicate location) combined with ML Isolation Forest ranking it in the top 99th percentile of behavioral anomalies. An auditor can click 'Assign for Field Verification' immediately."
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Screen 4: Vendor Intelligence Dossier -->
+      <div class="step-card">
+        <div class="step-badge">Screen 4 of 8</div>
+        <h3 class="step-title">4. Vendor Intelligence & Concentration Dossier</h3>
+        <div class="step-layout">
+          <div class="thumbnail-frame">
+            <div class="browser-bar">
+              <span class="dot red"></span>
+              <span class="dot yellow"></span>
+              <span class="dot green"></span>
+              <span class="browser-url">http://localhost:3000/#/financial (Vendor Profile)</span>
+            </div>
+            <div class="thumbnail-img-wrap" onclick="openLightbox('assets/screen4_vendor_dossier.png')">
+              <img src="assets/screen4_vendor_dossier.png" alt="Vendor Dossier Modal" class="thumbnail-img">
+            </div>
+          </div>
+
+          <div class="content-column">
+            <div class="point-box">
+              <div class="point-header">👉 What to Point to on Screen</div>
+              <ul class="point-list">
+                <li>Financial KPI row: 143,256 vouchers, ₹3,039 Cr expenditure, 22,851 vendors.</li>
+                <li>Switch to <strong>"Vendor Intelligence 22,851"</strong> tab.</li>
+                <li>Click <strong>"View Dossier →"</strong> on a vendor (e.g. <code>JAI CONSTRUCTION</code>).</li>
+                <li>Vendor Profile Modal: Shows MP engagement breakdown and <strong>revenue concentration % (98.35% from a single MP)</strong>.</li>
+              </ul>
+            </div>
+
+            <div class="script-box">
+              <div class="script-header">
+                <span>🗣️ What to Speak (Script)</span>
+                <button class="copy-btn" onclick="copyText('script-4')">Copy</button>
+              </div>
+              <p id="script-4" class="script-text">
+                "A major innovation is linking sanctions with actual ground banking vouchers from MoSPI Dataset 22565. Under Vendor Intelligence, we track all 22,851 commercial entities. Opening a Vendor Dossier reveals their MP engagement breakdown. If a vendor receives ₹27 Crores with 98% coming from a single MP, the system raises a Sole MP Concentration Alert."
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Screen 5: Vendor Intelligence Table -->
+      <div class="step-card">
+        <div class="step-badge">Screen 5 of 8</div>
+        <h3 class="step-title">5. Commercial Vendor Intelligence Table</h3>
+        <div class="step-layout">
+          <div class="thumbnail-frame">
+            <div class="browser-bar">
+              <span class="dot red"></span>
+              <span class="dot yellow"></span>
+              <span class="dot green"></span>
+              <span class="browser-url">http://localhost:3000/#/financial (Vendors Tab)</span>
+            </div>
+            <div class="thumbnail-img-wrap" onclick="openLightbox('assets/screen5_vendor_table.png')">
+              <img src="assets/screen5_vendor_table.png" alt="Vendor Table View" class="thumbnail-img">
+            </div>
+          </div>
+
+          <div class="content-column">
+            <div class="point-box">
+              <div class="point-header">👉 What to Point to on Screen</div>
+              <ul class="point-list">
+                <li>Search toolbar: Search commercial vendor name (e.g. <code>CONSTRUCTION</code>).</li>
+                <li>Sorting: Total Expenditure, Transactions Count, MPs Connected.</li>
+                <li>Table columns: Vendor, Expenditure, Transactions, MPs, Concentration, Action.</li>
+                <li>Pagination across all 22,851 vendors.</li>
+              </ul>
+            </div>
+
+            <div class="script-box">
+              <div class="script-header">
+                <span>🗣️ What to Speak (Script)</span>
+                <button class="copy-btn" onclick="copyText('script-5')">Copy</button>
+              </div>
+              <p id="script-5" class="script-text">
+                "Our vendor intelligence engine scans all 22,851 entities. The search and sort toolbar provides immediate ranking by transaction count, expenditure volume, and unique MPs connected, highlighting multi-state vendor networks."
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Screen 6: Field Verification Queue -->
+      <div class="step-card">
+        <div class="step-badge">Screen 6 of 8</div>
+        <h3 class="step-title">6. Field Verification & Investigation Dispatch</h3>
+        <div class="step-layout">
+          <div class="thumbnail-frame">
+            <div class="browser-bar">
+              <span class="dot red"></span>
+              <span class="dot yellow"></span>
+              <span class="dot green"></span>
+              <span class="browser-url">http://localhost:3000/#/investigations</span>
+            </div>
+            <div class="thumbnail-img-wrap" onclick="openLightbox('assets/screen6_field_verification.png')">
+              <img src="assets/screen6_field_verification.png" alt="Field Verification Queue" class="thumbnail-img">
+            </div>
+          </div>
+
+          <div class="content-column">
+            <div class="point-box">
+              <div class="point-header">👉 What to Point to on Screen</div>
+              <ul class="point-list">
+                <li>Filter by State (<code>Uttar Pradesh</code>) and Constituency (<code>AMROHA</code>).</li>
+                <li>Priority badges (<code>CRITICAL</code>, <code>HIGH</code>).</li>
+                <li>Status workflow pills (<code>NEW</code> → <code>UNDER_REVIEW</code> → <code>VERIFIED</code> → <code>CLEARED</code> → <code>ESCALATED</code>).</li>
+                <li>Investigation update drawer: Add officer inspection remarks and update ticket status.</li>
+              </ul>
+            </div>
+
+            <div class="script-box">
+              <div class="script-header">
+                <span>🗣️ What to Speak (Script)</span>
+                <button class="copy-btn" onclick="copyText('script-6')">Copy</button>
+              </div>
+              <p id="script-6" class="script-text">
+                "Data without workflow is useless. The Field Verification Queue converts analytics into administrative action. District Collectors can filter their exact constituency, dispatch junior engineers for physical inspection, upload Geo-tagged verification remarks, and update audit statuses directly."
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Screen 7: AI Copilot -->
+      <div class="step-card">
+        <div class="step-badge">Screen 7 of 8</div>
+        <h3 class="step-title">7. Explainable AI Audit Copilot</h3>
+        <div class="step-layout">
+          <div class="thumbnail-frame">
+            <div class="browser-bar">
+              <span class="dot red"></span>
+              <span class="dot yellow"></span>
+              <span class="dot green"></span>
+              <span class="browser-url">http://localhost:3000/#/copilot</span>
+            </div>
+            <div class="thumbnail-img-wrap" onclick="openLightbox('assets/screen7_copilot.png')">
+              <img src="assets/screen7_copilot.png" alt="AI Copilot Assistant" class="thumbnail-img">
+            </div>
+          </div>
+
+          <div class="content-column">
+            <div class="point-box">
+              <div class="point-header">👉 What to Point to on Screen</div>
+              <ul class="point-list">
+                <li>Query prompt: <em>"Which projects in UP have cost inflation?"</em> or <em>"Generate Physical Inspection Checklist"</em>.</li>
+                <li>Grounded Evidence answer displaying exact project IDs, allocation numbers, and statistical reasons.</li>
+                <li>Action recommendations & MoSPI guideline clause references.</li>
+              </ul>
+            </div>
+
+            <div class="script-box">
+              <div class="script-header">
+                <span>🗣️ What to Speak (Script)</span>
+                <button class="copy-btn" onclick="copyText('script-7')">Copy</button>
+              </div>
+              <p id="script-7" class="script-text">
+                "To empower non-technical ground officers, our AI Risk Copilot generates custom physical inspection checklists tailored to that project's civil work category. It answers complex statutory and audit queries grounded strictly in verified dataset evidence."
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Screen 8: Reports Export Center -->
+      <div class="step-card">
+        <div class="step-badge">Screen 8 of 8</div>
+        <h3 class="step-title">8. Reports & UTF-8 BOM CSV Export Center</h3>
+        <div class="step-layout">
+          <div class="thumbnail-frame">
+            <div class="browser-bar">
+              <span class="dot red"></span>
+              <span class="dot yellow"></span>
+              <span class="dot green"></span>
+              <span class="browser-url">http://localhost:3000/#/reports</span>
+            </div>
+            <div class="thumbnail-img-wrap" onclick="openLightbox('assets/screen8_reports.png')">
+              <img src="assets/screen8_reports.png" alt="Reports Export Center" class="thumbnail-img">
+            </div>
+          </div>
+
+          <div class="content-column">
+            <div class="point-box">
+              <div class="point-header">👉 What to Point to on Screen</div>
+              <ul class="point-list">
+                <li>4 Report Cards: Project Risk Report, Financial Intelligence Report, Vendor Report, Investigation Report.</li>
+                <li>Click <strong>"Export →"</strong> on any card.</li>
+                <li>Show the green success banner and instant UTF-8 BOM CSV download for Microsoft Excel.</li>
+                <li>Point to <strong>"Print Dossier"</strong> button.</li>
+              </ul>
+            </div>
+
+            <div class="script-box">
+              <div class="script-header">
+                <span>🗣️ What to Speak (Script)</span>
+                <button class="copy-btn" onclick="copyText('script-8')">Copy</button>
+              </div>
+              <p id="script-8" class="script-text">
+                "Finally, accountability requires exportable records. Our Reports Export Center streams clean, UTF-8 BOM-encoded CSV datasets ready for Microsoft Excel and official ministry reporting with a single click."
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Interactive Risk Simulator -->
+    <div class="simulator-card" id="simulator">
+      <div class="hero-tag"><span>🎛️</span> Interactive Formula Visualizer</div>
+      <h2 style="font-size: 26px; font-weight: 800; color: #fff;">Hybrid Risk Score Formula Simulator</h2>
+      <p style="color: var(--text-muted); font-size: 14px; margin-top: 6px;">
+        Formula: <code style="font-family: var(--mono); color: #93c5fd; background: rgba(0,0,0,0.3); padding: 2px 8px; border-radius: 6px;">Hybrid Score = (0.6 × Rule Score) + (0.4 × ML Anomaly Score)</code>
+      </p>
+
+      <div class="sim-grid">
+        <div class="slider-group">
+          <div class="slider-item">
+            <div class="slider-label">
+              <span>Statutory Rule Score (Deterministic)</span>
+              <span id="rule-val">85 / 100</span>
+            </div>
+            <input type="range" id="rule-slider" min="0" max="100" value="85" oninput="updateSim()">
+          </div>
+
+          <div class="slider-item">
+            <div class="slider-label">
+              <span>ML Isolation Forest Anomaly Score</span>
+              <span id="ml-val">80 / 100</span>
+            </div>
+            <input type="range" id="ml-slider" min="0" max="100" value="80" oninput="updateSim()">
+          </div>
+        </div>
+
+        <div class="sim-result-box">
+          <div style="font-size: 12px; font-weight: 700; color: var(--text-muted); text-transform: uppercase;">Calculated Hybrid Score</div>
+          <div class="sim-score-num" id="sim-score">83</div>
+          <span class="badge-pill" id="sim-badge" style="background: rgba(239, 68, 68, 0.2); color: #f87171; border: 1px solid #ef4444;">Critical Priority</span>
+          <div id="sim-action" style="font-size: 12px; color: var(--text-muted); margin-top: 10px;">Immediate on-site field verification recommended</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Jury Q&A Cheat Sheet -->
+    <div class="section-title-wrap" id="qa">
+      <div class="section-title">❓ Anticipated Jury Questions & Winning Answers</div>
+      <div class="section-desc">Click any question to view the winning technical answer</div>
+    </div>
+
+    <div class="qa-group">
+      <div class="qa-item open">
+        <div class="qa-question" onclick="toggleQA(this)">
+          <span>Q1: Why use unsupervised Isolation Forest instead of supervised XGBoost or Random Forest?</span>
+          <span class="qa-icon">+</span>
+        </div>
+        <div class="qa-answer">
+          <strong>Winning Answer:</strong> "Public scheme data lacks labeled historical 'fraud' datasets. Supervised learning requires thousands of confirmed fraud labels, which introduces severe confirmation bias. Isolation Forest is an unsupervised algorithm specifically engineered for anomaly detection by isolating rare, anomalous data points in high-dimensional space without requiring labeled ground truth."
+        </div>
+      </div>
+
+      <div class="qa-item">
+        <div class="qa-question" onclick="toggleQA(this)">
+          <span>Q2: How does the system handle unstandardized text in raw expenditure vouchers?</span>
+          <span class="qa-icon">+</span>
+        </div>
+        <div class="qa-answer">
+          <strong>Winning Answer:</strong> "We engineered a scoped fuzzy matching algorithm that constrains the candidate search space within the same State and Parliamentary Constituency. It computes token-overlap and SequenceMatcher similarity against sanctioned project titles, routing low-confidence matches to the Human-in-the-Loop review queue for verification."
+        </div>
+      </div>
+
+      <div class="qa-item">
+        <div class="qa-question" onclick="toggleQA(this)">
+          <span>Q3: Does a high risk score mean that a Member of Parliament is corrupt?</span>
+          <span class="qa-icon">+</span>
+        </div>
+        <div class="qa-answer">
+          <strong>Winning Answer:</strong> "Absolutely not. As enforced by statutory disclaimers across our UI, risk scores indicate statistical, temporal, or administrative divergence—such as prolonged unsanctioned duration or complex hospital allocations. The system exists purely to provide data-driven prioritization for where District Collectors should allocate limited physical inspection teams first."
+        </div>
+      </div>
+
+      <div class="qa-item">
+        <div class="qa-question" onclick="toggleQA(this)">
+          <span>Q4: How scalable is this architecture for Pan-India deployment across all ministries?</span>
+          <span class="qa-icon">+</span>
+        </div>
+        <div class="qa-answer">
+          <strong>Winning Answer:</strong> "The backend is built with indexed database queries, paginated REST streams, and decoupled ML inference. The entire dataset of 56,138 works and 143,256 vouchers loads in sub-50ms latency. The same schema and dual-engine architecture can be extended to PMGSY, MGNREGA, or Smart Cities schemes seamlessly."
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Lightbox Modal -->
+  <div id="lightbox" class="lightbox" onclick="closeLightbox()">
+    <button class="lightbox-close">&times;</button>
+    <img id="lightbox-img" class="lightbox-img" src="" alt="Enlarged screenshot">
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      MPLADS AI Intelligent Risk Monitoring System • Smart India Hackathon 2026 • Problem Statement SIH26102
+    </div>
+  </footer>
+
+  <script>
+    function scrollToSection(id) {
+      const el = document.getElementById(id);
+      if (el) {
+        el.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+
+    function toggleQA(element) {
+      const parent = element.parentElement;
+      parent.classList.toggle('open');
+    }
+
+    function copyText(elementId) {
+      const text = document.getElementById(elementId).innerText;
+      navigator.clipboard.writeText(text).then(() => {
+        alert('Copied to clipboard!');
+      });
+    }
+
+    function openLightbox(src) {
+      document.getElementById('lightbox-img').src = src;
+      document.getElementById('lightbox').classList.add('active');
+    }
+
+    function closeLightbox() {
+      document.getElementById('lightbox').classList.remove('active');
+    }
+
+    function updateSim() {
+      const rule = parseFloat(document.getElementById('rule-slider').value);
+      const ml = parseFloat(document.getElementById('ml-slider').value);
+      
+      document.getElementById('rule-val').innerText = rule + ' / 100';
+      document.getElementById('ml-val').innerText = ml + ' / 100';
+
+      const hybrid = Math.round((0.6 * rule) + (0.4 * ml));
+      const scoreEl = document.getElementById('sim-score');
+      const badgeEl = document.getElementById('sim-badge');
+      const actionEl = document.getElementById('sim-action');
+
+      scoreEl.innerText = hybrid;
+
+      if (hybrid >= 75) {
+        scoreEl.style.color = '#ef4444';
+        badgeEl.style.background = 'rgba(239, 68, 68, 0.2)';
+        badgeEl.style.color = '#f87171';
+        badgeEl.style.borderColor = '#ef4444';
+        badgeEl.innerText = 'Critical Priority';
+        actionEl.innerText = 'Immediate on-site field verification recommended';
+      } else if (hybrid >= 50) {
+        scoreEl.style.color = '#f59e0b';
+        badgeEl.style.background = 'rgba(245, 158, 11, 0.2)';
+        badgeEl.style.color = '#fbbf24';
+        badgeEl.style.borderColor = '#f59e0b';
+        badgeEl.innerText = 'High Risk';
+        actionEl.innerText = 'Administrative audit review recommended';
+      } else if (hybrid >= 30) {
+        scoreEl.style.color = '#3b82f6';
+        badgeEl.style.background = 'rgba(59, 130, 246, 0.2)';
+        badgeEl.style.color = '#60a5fa';
+        badgeEl.style.borderColor = '#3b82f6';
+        badgeEl.innerText = 'Medium Risk';
+        actionEl.innerText = 'Periodic progress monitoring required';
+      } else {
+        scoreEl.style.color = '#10b981';
+        badgeEl.style.background = 'rgba(16, 185, 129, 0.2)';
+        badgeEl.style.color = '#34d399';
+        badgeEl.style.borderColor = '#10b981';
+        badgeEl.innerText = 'Low / Normal';
+        actionEl.innerText = 'Standard implementation cycle';
+      }
+    }
+
+    // Initialize simulator
+    updateSim();
+  </script>
+</body>
+</html>

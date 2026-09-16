@@ -1,0 +1,3 @@
+payment_status,transaction_count,total_expenditure,mean_expenditure,min_expenditure,max_expenditure,tx_share_pct,amount_share_pct
+Payment In-Progress,5261,1872252026.0,355873.79319521005,10.0,14430350.0,3.6724465292902213,3.6652038062731678
+Payment Success,137995,49209546557.63,356603.8375131707,1.0,32562250.0,96.32755347070979,96.33479619372682

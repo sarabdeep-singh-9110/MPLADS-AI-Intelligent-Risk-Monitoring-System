@@ -1,0 +1,23 @@
+{
+  "model_type": "IsolationForest",
+  "features": [
+    "allocation_amount",
+    "amount_vs_work_median",
+    "amount_percentile",
+    "mp_work_location_count",
+    "days_since_recommendation"
+  ],
+  "feature_order": [
+    "allocation_amount",
+    "amount_vs_work_median",
+    "amount_percentile",
+    "mp_work_location_count",
+    "days_since_recommendation"
+  ],
+  "n_estimators": 200,
+  "contamination": "auto",
+  "random_state": 42,
+  "decision_score_min": -0.3070717330922602,
+  "decision_score_max": 0.135335767828427,
+  "description": "The fitted Isolation Forest identified observations that were statistically easier to isolate within the supplied feature space. The observed anomaly rate is dataset and model dependent and does not represent fraud probability."
+}

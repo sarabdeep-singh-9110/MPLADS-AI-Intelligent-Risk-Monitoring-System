@@ -1,0 +1,19 @@
+{
+  "name": "mplads-backend",
+  "version": "1.0.0",
+  "description": "Backend API for MPLADS AI Risk Monitoring System (SIH26102)",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch server.js"
+  },
+  "keywords": ["mplads", "sih26102", "ai", "risk-monitoring"],
+  "author": "SIH Team",
+  "license": "MIT",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "sqlite3": "^5.1.7"
+  }
+}

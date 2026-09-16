@@ -1,0 +1,105 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" width="800" height="500" style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;">
+  <defs>
+    <linearGradient id="bg_before_work" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#334155"/><stop offset="100%" stop-color="#1e293b"/>
+    </linearGradient>
+    <pattern id="grid_before_work" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="rgba(255,255,255,0.06)" stroke-width="1"/>
+    </pattern>
+    <filter id="shadow_before_work" x="-5%" y="-5%" width="110%" height="110%">
+      <feDropShadow dx="0" dy="4" stdDeviation="6" flood-opacity="0.25"/>
+    </filter>
+  </defs>
+
+  <!-- Background Base -->
+  <rect width="800" height="500" fill="url(#bg_before_work)" />
+  <rect width="800" height="500" fill="url(#grid_before_work)" />
+
+  <!-- Horizon / Terrain elements -->
+  
+      <!-- Open overgrown land plot -->
+      <polygon points="0,420 800,420 800,270 0,270" fill="#3f3f46" opacity="0.7"/>
+      <!-- Demarcation boundary flags -->
+      <line x1="200" y1="360" x2="600" y2="360" stroke="#eab308" stroke-width="2" stroke-dasharray="8,6"/>
+      <rect x="195" y="330" width="6" height="40" fill="#e2e8f0"/>
+      <polygon points="201,330 225,320 201,310" fill="#ef4444"/>
+      <rect x="595" y="330" width="6" height="40" fill="#e2e8f0"/>
+      <polygon points="601,330 625,320 601,310" fill="#ef4444"/>
+      <text x="400" y="385" text-anchor="middle" font-size="12" font-weight="700" fill="#e2e8f0">
+        PLOT CLEARED FOR PUBLIC SHED STRUCTURE (DEMO)
+      </text>
+    
+
+  <!-- Prominent Watermark across center -->
+  <g transform="rotate(-15, 400, 250)" opacity="0.12">
+    <text x="400" y="230" text-anchor="middle" font-size="34" font-weight="900" fill="#ffffff" letter-spacing="4">
+      DEMO DATA • SAMPLE EVIDENCE
+    </text>
+    <text x="400" y="270" text-anchor="middle" font-size="22" font-weight="700" fill="#ffffff" letter-spacing="3">
+      NOT OFFICIAL GOVERNMENT RECORD
+    </text>
+  </g>
+
+  <!-- Top Institutional DEMO Banner -->
+  <rect x="0" y="0" width="800" height="42" fill="#0f172a" opacity="0.92" />
+  <rect x="0" y="40" width="800" height="2" fill="#64748b" />
+  
+  <g transform="translate(16, 26)">
+    <!-- Badge -->
+    <rect x="0" y="-16" width="105" height="24" rx="4" fill="#dc2626" />
+    <text x="52" y="0" text-anchor="middle" font-size="11" font-weight="800" fill="#ffffff" letter-spacing="1">DEMO DATA</text>
+    
+    <text x="120" y="0" font-size="13" font-weight="700" fill="#f8fafc">
+      Sample Field Evidence — Public Convenience Structure
+    </text>
+  </g>
+
+  <!-- Top Right Project & Stage Badge -->
+  <g transform="translate(680, 26)">
+    <rect x="-10" y="-16" width="115" height="24" rx="12" fill="#64748b" />
+    <text x="47" y="0" text-anchor="middle" font-size="11" font-weight="800" fill="#ffffff" letter-spacing="0.5">
+      BEFORE WORK
+    </text>
+  </g>
+
+  <!-- Reticle / Camera Viewfinder markings -->
+  <path d="M 50 80 L 70 80 M 50 80 L 50 100" stroke="#ffffff" stroke-width="2" stroke-opacity="0.6" fill="none" />
+  <path d="M 750 80 L 730 80 M 750 80 L 750 100" stroke="#ffffff" stroke-width="2" stroke-opacity="0.6" fill="none" />
+  <path d="M 50 410 L 70 410 M 50 410 L 50 390" stroke="#ffffff" stroke-width="2" stroke-opacity="0.6" fill="none" />
+  <path d="M 750 410 L 730 410 M 750 410 L 750 390" stroke="#ffffff" stroke-width="2" stroke-opacity="0.6" fill="none" />
+  
+  <!-- Center Targeting Reticle -->
+  <circle cx="400" cy="245" r="28" fill="none" stroke="#ffffff" stroke-width="1.5" stroke-opacity="0.35" stroke-dasharray="3,3"/>
+  <line x1="400" y1="210" x2="400" y2="280" stroke="#ffffff" stroke-width="1.5" stroke-opacity="0.4"/>
+  <line x1="365" y1="245" x2="435" y2="245" stroke="#ffffff" stroke-width="1.5" stroke-opacity="0.4"/>
+
+  <!-- Bottom Metadata HUD Bar -->
+  <rect x="0" y="420" width="800" height="80" fill="#0b0f19" opacity="0.94" />
+  <rect x="0" y="420" width="800" height="1" fill="#334155" />
+
+  <g transform="translate(24, 448)">
+    <!-- Column 1: GPS -->
+    <text x="0" y="0" font-size="10" font-weight="600" fill="#94a3b8" letter-spacing="0.5">DEMO GEOTAG</text>
+    <text x="0" y="18" font-size="12" font-weight="700" fill="#38bdf8" font-family="monospace">
+      15.2832° N, 73.9862° E (Demo GPS)
+    </text>
+
+    <!-- Column 2: Timestamp -->
+    <text x="240" y="0" font-size="10" font-weight="600" fill="#94a3b8" letter-spacing="0.5">DEMO TIMESTAMP</text>
+    <text x="240" y="18" font-size="12" font-weight="600" fill="#f1f5f9" font-family="monospace">
+      2026-06-02 08:30:00 IST
+    </text>
+
+    <!-- Column 3: Compass / Bearing -->
+    <text x="440" y="0" font-size="10" font-weight="600" fill="#94a3b8" letter-spacing="0.5">ACCURACY &amp; BEARING</text>
+    <text x="440" y="18" font-size="12" font-weight="600" fill="#e2e8f0" font-family="monospace">
+      ±3.5m • 270° W
+    </text>
+
+    <!-- Column 4: Project Ref -->
+    <text x="610" y="0" font-size="10" font-weight="600" fill="#94a3b8" letter-spacing="0.5">PROJECT REF</text>
+    <text x="610" y="18" font-size="11" font-weight="700" fill="#cbd5e1" font-family="monospace">
+      #PRJ_B6FC3012D149
+    </text>
+  </g>
+</svg>
