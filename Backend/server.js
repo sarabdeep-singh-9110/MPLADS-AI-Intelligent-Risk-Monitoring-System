@@ -16,11 +16,11 @@ const similarRoutes = require('./routes/similar');
 const app = express();
 const PORT = process.env.PORT || 5000;
 
-// CORS: Restrict to known development origins (configurable via env var)
-const allowedOrigins = process.env.ALLOWED_ORIGINS
-  ? process.env.ALLOWED_ORIGINS.split(',')
-  : ['http://localhost:3000', 'http://localhost:5173'];
-app.use(cors({ origin: allowedOrigins }));
+// CORS: Allow local development and cloud production (Vercel)
+app.use(cors({
+  origin: true,
+  credentials: true
+}));
 app.use(express.json());
 
 // ┌──────────────────────────────────────────────────────────────────────────┐
@@ -51,6 +51,10 @@ app.use((err, req, res, next) => {
   res.status(500).json({ error: 'Internal Server Error', message: err.message });
 });
 
-app.listen(PORT, () => {
-  console.log(`MPLADS Backend REST API Server running on port ${PORT}`);
-});
+if (require.main === module) {
+  app.listen(PORT, () => {
+    console.log(`MPLADS Backend REST API Server running on port ${PORT}`);
+  });
+}
+
+module.exports = app;
